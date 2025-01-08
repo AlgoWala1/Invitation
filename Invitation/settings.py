@@ -15,6 +15,12 @@ import os
 import dj_database_url as dj
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+DATABASES = {
+    "default":{
+        "ENGINE":"django.db.backends.sqlite3",
+        "NAME": BASE_DIR/"db.sqlite3"
+    }
+}
 DATABASES["default"] = dj.parse('postgresql://invitation_db_soqy_user:WhYtTQYTTs2kGue8qALfYzDEgtElmfKL@dpg-ctva061u0jms73avuvpg-a/invitation_db_soqy')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/

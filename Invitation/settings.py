@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 from urllib.parse import urlparse
 
 # Get the DATABASE_URL environment variable set by Render
-DATABASE_URL = os.getenv('postgresql://invitation_db_soqy_user:WhYtTQYTTs2kGue8qALfYzDEgtElmfKL@dpg-ctva061u0jms73avuvpg-a/invitation_db_soqy')
+DATABASE_URL = os.getenv('postgresql://invitation_db_soqy_user:WhYtTQYTTs2kGue8qALfYzDEgtElmfKL@dpg-ctva061u0jms73avuvpg-a.oregon-postgres.render.com/invitation_db_soqy')
 
 # If DATABASE_URL is set, configure the database settings
 if DATABASE_URL:

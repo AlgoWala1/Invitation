@@ -12,27 +12,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url as dj
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-from urllib.parse import urlparse
-
-# Get the DATABASE_URL environment variable set by Render
-DATABASE_URL = os.getenv('postgresql://invitation_db_soqy_user:WhYtTQYTTs2kGue8qALfYzDEgtElmfKL@dpg-ctva061u0jms73avuvpg-a.oregon-postgres.render.com/invitation_db_soqy')
-
-# If DATABASE_URL is set, configure the database settings
-if DATABASE_URL:
-    url = urlparse(DATABASE_URL)
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': url.path[1:],  # Remove the leading slash
-            'USER': url.username,
-            'PASSWORD': url.password,
-            'HOST': url.hostname,
-            'PORT': '5432',
-        }
-    }
-
+DATABASES["default"] = dj.parse('postgresql://invitation_db_soqy_user:WhYtTQYTTs2kGue8qALfYzDEgtElmfKL@dpg-ctva061u0jms73avuvpg-a/invitation_db_soqy')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 

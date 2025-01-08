@@ -14,7 +14,24 @@ from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+from urllib.parse import urlparse
 
+# Get the DATABASE_URL environment variable set by Render
+DATABASE_URL = os.getenv('postgresql://invitation_db_soqy_user:WhYtTQYTTs2kGue8qALfYzDEgtElmfKL@dpg-ctva061u0jms73avuvpg-a/invitation_db_soqy')
+
+# If DATABASE_URL is set, configure the database settings
+if DATABASE_URL:
+    url = urlparse(DATABASE_URL)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': url.path[1:],  # Remove the leading slash
+            'USER': url.username,
+            'PASSWORD': url.password,
+            'HOST': url.hostname,
+            'PORT': '5432',
+        }
+    }
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -68,21 +85,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Invitation.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Invitation-DB',  # Replace with your Render database name
-        'USER': 'invitation_db_soqy_user',  # Replace with your Render database user
-        'PASSWORD': 'WhYtTQYTTs2kGue8qALfYzDEgtElmfKL',  # Replace with your Render database password
-        'HOST': 'dpg-ctva061u0jms73avuvpg-a',  # Replace with your Render database host (e.g., "dpg-cg24n37u6v0nbp68fi2g-a.oregon-postgres.render.com")
-        'PORT': '5432',  # Default PostgreSQL port
-    }
-}
 
 
 # Password validation

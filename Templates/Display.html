@@ -74,11 +74,13 @@
             </thead>
             <tbody>
                 {% for attendee in attending_list %}
+                {%if not 'Mohin' in attendee.name%}
                 <tr>
                     <td>{{ loop.index }}</td>
                     <td>{{ attendee.name }}</td>
                     <td>{{ attendee.email }}</td>
                 </tr>
+                {%endif%}
                 {% endfor %}
             </tbody>
         </table>

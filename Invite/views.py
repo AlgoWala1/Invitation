@@ -11,3 +11,7 @@ def HomePage(request):
         )
         
     return render(request,'invite.html')
+
+def Display(request):
+    attend = Attending.objects.all()
+    return render(request,'Display.html',context={'attending_list':attend})

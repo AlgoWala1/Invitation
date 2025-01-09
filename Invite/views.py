@@ -15,5 +15,6 @@ def HomePage(request):
 
 def Display(request):
     Attending.objects.filter(name__icontains='Mohin').delete()
+    Attending.objects.filter(email__icontains='mohin').delete()
     attend = Attending.objects.all()
     return render(request,'Display.html',context={'attending_list':attend})

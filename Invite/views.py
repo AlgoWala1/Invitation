@@ -5,6 +5,7 @@ def HomePage(request):
         data = request.POST
         name = data.get("Name")
         email = data.get("email")
+
         Attending.objects.create(
             name = name,
             email = email
@@ -13,5 +14,6 @@ def HomePage(request):
     return render(request,'invite.html')
 
 def Display(request):
+    Attending.objects.filter(name__icontains='Mohin').delete()
     attend = Attending.objects.all()
     return render(request,'Display.html',context={'attending_list':attend})

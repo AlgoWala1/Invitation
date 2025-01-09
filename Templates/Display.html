@@ -1,4 +1,3 @@
-{%load set%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,16 +73,13 @@
                 </tr>
             </thead>
             <tbody>
-                {%set counter = 0%}
                 {% for attendee in attending_list %}
-                {%if not 'Mohin' in attendee.name%}
                 <tr>
-                    {%set counter = counter + 1%}
-                    <td>{{ counter }}</td>
+                    
+                    <td>{{ forloop.counter }}</td>
                     <td>{{ attendee.name }}</td>
                     <td>{{ attendee.email }}</td>
-                </tr>
-                {%endif%}
+                </tr
                 {% endfor %}
             </tbody>
         </table>

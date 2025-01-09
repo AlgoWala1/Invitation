@@ -17,9 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Invite.views import HomePage
-from Invite.views import Disp
+from Invite.views import Display
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/Display'),
+    path('/Display',Display),
     path('',HomePage)
 ]

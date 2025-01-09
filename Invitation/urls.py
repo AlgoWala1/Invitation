@@ -20,6 +20,6 @@ from Invite.views import HomePage
 from Invite.views import Display
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/Display',Display),
+    path('Display/',Display),
     path('',HomePage)
 ]

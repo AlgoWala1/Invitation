@@ -16,7 +16,7 @@
   }  
   
   body {  
-    background: linear-gradient(to right, #a3cb11, #fc25fc);  
+    background: linear-gradient(to right, #90EE90, #1a0b44);  
     color: #fff;  
     text-align: center;  
     padding: 20px;  
@@ -111,9 +111,11 @@
     <div class="rsvp">
       <h2>RSVP Now</h2>
       <form method="POST">
-        {%csrf_token%}
+        {% csrf_token %}
         <input type="text" placeholder="Your Name" name="Name" required />
-        <input type="email" placeholder="Your Email" name = "email" required />
+        <input type="email" placeholder="Your Email" name="email" required />
+        <input type="tel" placeholder="Your Phone Number" name="Phone_Number" pattern="[0-9]{10}" required />
+        <small>Format: 10 digits (e.g., 1234567890)</small>
         <button type="submit">Confirm Attendance</button>
       </form>
     </div>

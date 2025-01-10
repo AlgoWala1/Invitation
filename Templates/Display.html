@@ -70,6 +70,7 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Phone Number</th>
                 </tr>
             </thead>
             <tbody>
@@ -79,7 +80,8 @@
                     <td>{{ forloop.counter }}</td>
                     <td>{{ attendee.name }}</td>
                     <td>{{ attendee.email }}</td>
-                </tr
+                    <td>{{attendee.phoneNumber}}</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>

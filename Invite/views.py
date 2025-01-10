@@ -5,10 +5,12 @@ def HomePage(request):
         data = request.POST
         name = data.get("Name")
         email = data.get("email")
+        phone = data.get("Phone_Number")
 
         Attending.objects.create(
             name = name,
-            email = email
+            email = email,
+            phoneNumber = phone
         )
         
     return render(request,'invite.html')

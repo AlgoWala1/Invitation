@@ -46,7 +46,7 @@ def Activities(request):
     
     return render(request,"Activities.html")
 
-def Events(request):
+def Event(request):
     Events.objects.filter(team_name__icontains='Mohin').delete()
     Events.objects.filter(phone__icontains='9888133408').delete()
     event = Events.objects.all()

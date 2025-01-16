@@ -29,9 +29,9 @@ DATABASES["default"] = dj.parse('postgresql://invitation_db_soqy_user:WhYtTQYTTs
 SECRET_KEY = 'django-insecure-ten^^80)5pvq@15#^n@v45&lqi)&2&liozl-@ifw+k3noae&a&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['invitation-y8hz.onrender.com']
+ALLOWED_HOSTS = ['invitation-y8hz.onrender.com','127.0.0.1']
 
 
 # Application definition

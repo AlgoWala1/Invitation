@@ -251,11 +251,11 @@
       <div class="popup-content">
         <span class="close" onclick="closePopup()">&times;</span>
         <h2>Register for <span id="activity-name"></span></h2>
-        <form onsubmit="event.preventDefault(); register();" method="POST">
+        <form method="POST">
           {% csrf_token %}
-          <input type="text" id="team_name" placeholder="Team Name" required />
-          <input type="text" id="leader_name" placeholder="Team Leader's Name" required />
-          <input type="tel" id="phone" placeholder="Phone Number" pattern="[0-9]{10}" required />
+          <input type="text" name = "team_name" id="team_name" placeholder="Team Name" required />
+          <input type="text" name = "leader_name" id="leader_name" placeholder="Team Leader's Name" required />
+          <input type="tel" name = "phone" id="phone" placeholder="Phone Number" pattern="[0-9]{10}" required />
           <input name = 'identity' type="hidden" id="activity-field" />
           <button type="submit">Submit</button>
         </form>
@@ -271,14 +271,6 @@
 
       function closePopup() {
         document.querySelector(".popup").classList.remove("active");
-      }
-
-      function register() {
-        const team_name = document.querySelector("#team_name").value;
-        const leader_name = document.querySelector("#leader_name").value;
-        const phone = document.querySelector("#phone").value;
-        const activity_name = document.querySelector("#activity-field").value;
-        closePopup();
       }
     </script>
   </body>

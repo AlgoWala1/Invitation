@@ -23,3 +23,9 @@ def Display(request):
     
     attend = Attending.objects.all()
     return render(request,'Display.html',context={'attending_list':attend})
+
+def Activities(request):
+    if request.method == "POST":
+        print(request.POST.get("identity"))
+        
+    return render(request,"Activities.html")

@@ -2,7 +2,6 @@
 
 from django.db import migrations, models
 
-
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -20,9 +19,4 @@ class Migration(migrations.Migration):
                 ('activity', models.TextField(max_length=50)),
             ],
         ),
-    #    migrations.AddField(
-    #        model_name='attending',
-    #        name='phoneNumber',
-    #        field=models.TextField(default='X'),
-    #    ),
     ]

@@ -22,6 +22,6 @@ from Invite.views import Activities
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Display/',Display),
-    path('Activities', Activities),
+    path('Activities/', Activities),
     path('',HomePage)
 ]

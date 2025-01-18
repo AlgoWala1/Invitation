@@ -21,7 +21,7 @@
       }
 
       h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         margin-bottom: 20px;
       }
 
@@ -34,11 +34,18 @@
       }
 
       .activity {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 10px;
-        padding: 20px;
-        width: 250px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 15px;
+        padding: 15px;
+        width: 280px;
         text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .activity:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
       }
 
       .activity img {
@@ -57,22 +64,23 @@
       .activity p {
         font-size: 1rem;
         margin-bottom: 15px;
+        line-height: 1.5;
       }
 
       .activity .links a {
         display: inline-block;
         margin: 5px 10px;
         padding: 10px 20px;
-        background-color: #2575fc;
+        background-color: #6a11cb;
         color: #fff;
         text-decoration: none;
         border-radius: 5px;
         transition: background 0.3s ease;
-        cursor: pointer;
+        font-size: 0.9rem;
       }
 
       .activity .links a:hover {
-        background-color: #6a11cb;
+        background-color: #2575fc;
       }
 
       /* Popup Styles */
@@ -89,6 +97,7 @@
         visibility: hidden;
         opacity: 0;
         transition: visibility 0s, opacity 0.3s ease;
+        z-index: 999;
       }
 
       .popup.active {
@@ -99,28 +108,30 @@
       .popup-content {
         background: #fff;
         color: #000;
-        padding: 30px;
+        padding: 20px;
         border-radius: 10px;
         text-align: center;
-        width: 400px;
+        width: 90%;
+        max-width: 400px;
         position: relative;
       }
 
       .popup-content h2 {
-        margin-bottom: 20px;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: #6a11cb;
       }
 
-      .popup-content input {
-        width: 90%;
-        padding: 10px;
+      .popup-content p {
         margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: left;
       }
 
       .popup-content button {
         padding: 10px 20px;
-        margin-top: 10px;
+        margin-top: 15px;
         background-color: #2575fc;
         color: #fff;
         border: none;
@@ -136,53 +147,30 @@
       .popup-content .close {
         position: absolute;
         top: 10px;
-        right: 10px;
+        right: 15px;
         font-size: 1.5rem;
         cursor: pointer;
         color: #2575fc;
       }
 
-      /* Media Queries for Responsiveness */
+      /* Media Queries */
       @media (max-width: 768px) {
-        body {
-          padding: 15px;
-        }
-
         h1 {
-          font-size: 2.5rem;
-        }
-
-        .activities {
-          gap: 15px;
-          margin: 20px 0;
+          font-size: 2rem;
         }
 
         .activity {
-          width: 200px;
-        }
-
-        .popup-content {
-          width: 80%;
+          width: 90%;
         }
       }
 
       @media (max-width: 480px) {
         h1 {
-          font-size: 2rem;
+          font-size: 1.8rem;
         }
 
-        .activities {
-          gap: 10px;
-          margin: 15px 0;
-        }
-
-        .activity {
-          width: 100%;
-        }
-
-        .popup-content {
-          width: 90%;
-          padding: 20px;
+        .activity img {
+          height: 120px;
         }
       }
     </style>
@@ -192,85 +180,124 @@
     <div class="activities">
       <!-- Activity 1 -->
       <div class="activity">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2446263.jpg&f=1&nofb=1&ipt=de1724446e8c9b59144ba730302d169943d4db2d22a99bc157bdcbc575c94fb7&ipo=images" alt="Kaun Banega Finance Guru" />
+        <img src="https://wallpapercave.com/wp/wp2446263.jpg" alt="Kaun Banega Finance Guru" />
         <h2>Kaun Banega Finance Guru (Quiz)</h2>
-        <p>Test your financial knowledge and become the finance guru!</p>
+        <p>Test your financial knowledge in this exciting 3-round quiz!</p>
         <div class="links">
-          <a href="#" onclick="openPopup('Kaun Banega Finance Guru (Quiz)')">Register</a>
+          <a href="#" onclick="openDetails('Kaun Banega Finance Guru', 'Date: 30th January 2025<br>Time: 11:00 AM<br>Team Size: 2 members<br>Registration Deadline: 5 PM, 28th January 2025')">Details</a>
+          <a href="#" onclick="openRegister('Kaun Banega Finance Guru')">Register</a>
         </div>
       </div>
+
       <!-- Activity 2 -->
       <div class="activity">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.hBemfDy22HZHP7qq0DJqZgHaFj%26pid%3DApi&f=1&ipt=357e2ffcd535f6c80b9b216586c65adf52b2ff2c410f772aa78a56d9c4871ccf&ipo=images" alt="Case Quest" />
-        <h2>Case Quest (Case Study Competition)</h2>
-        <p>Showcase your problem-solving skills in our case study competition.</p>
+        <img src="https://wallpaperaccess.com/full/2441923.jpg" alt="Case Quest" />
+        <h2>Case Quest (Case Study)</h2>
+        <p>Showcase your problem-solving skills with our case study challenge.</p>
         <div class="links">
-          <a href="#" onclick="openPopup('Case Quest (Case Study Competition)')">Register</a>
+          <a href="#" onclick="openDetails('Case Quest', 'Date: 30th January 2025<br>Time: 2:30 PM<br>Team Size: 3–4 members<br>Registration Deadline: 5 PM, 25th January 2025<br>Presentation Time: 10 minutes<br>Judging Criteria: Depth of analysis, innovation, teamwork, and presentation')">Details</a>
+          <a href="#" onclick="openRegister('Case Quest')">Register</a>
         </div>
       </div>
+
       <!-- Activity 3 -->
       <div class="activity">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.88CkNKQl5dvy5_r7cHNdRgHaHa%26pid%3DApi&f=1&ipt=83f8df3aec061d0d1f2ee1c9dc8b30490f3efa0ebe805eb95c9e460f3a7eea4f&ipo=images" alt="Strategy 360" />
-        <h2>Strategy 360 (Management Games)</h2>
-        <p>Test your strategic thinking in our management games.</p>
+        <img src="https://tse2.mm.bing.net/th?id=OIP.88CkNKQl5dvy5_r7cHNdRgHaHa&pid=Api" alt="Strategy 360" />
+        <h2>Strategy 360° (Management Games)</h2>
+        <p>Test your strategic thinking and management skills in these games!</p>
         <div class="links">
-          <a href="#" onclick="openPopup('Strategy 360 (Management Games)')">Register</a>
+          <a href="#" onclick="openDetails('Strategy 360°', 'Date: 30th January 2025<br>Time: 11:00 AM<br>Team Size: 3–5 members')">Details</a>
+          <a href="#" onclick="openRegister('Strategy 360°')">Register</a>
         </div>
       </div>
+
       <!-- Activity 4 -->
       <div class="activity">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2441923.jpg&f=1&nofb=1&ipt=8d1f9d51025d6782021df798b51cf10c6408cd720ecbc617951cc88942a56580&ipo=images" alt="Pitch to Win" />
+        <img src="https://wallpaperaccess.com/full/2441923.jpg" alt="Pitch to Win" />
         <h2>Pitch to Win (Business Plan Competition)</h2>
-        <p>Present your business ideas and pitch to win!</p>
+        <p>Present your innovative business ideas and pitch to win!</p>
         <div class="links">
-          <a href="#" onclick="openPopup('Pitch to Win (Business Plan Competition)')">Register</a>
+          <a href="#" onclick="openDetails('Pitch to Win', 'Date: 31st January 2025<br>Time: 10:30 AM<br>Team Size: Individual or up to 5 members<br>Registration Deadline: 5 PM, 28th January 2025<br>Submission: Submit your business plan to ideationclub@pmlsdbs.ac.in<br>Judging Criteria: Originality, market analysis, financial projections, and presentation')">Details</a>
+          <a href="#" onclick="openRegister('Pitch to Win')">Register</a>
         </div>
       </div>
+
       <!-- Activity 5 -->
       <div class="activity">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._6lSBpa_8Eo9gL5KdbEs1QHaE8%26pid%3DApi&f=1&ipt=fdf1c93dbbfb0b5b6247a93a997cdd98ac67241b5e689dfc37ae26d17fb24116&ipo=images" alt="Secret Safari" />
+        <img src="https://tse1.mm.bing.net/th?id=OIP._6lSBpa_8Eo9gL5KdbEs1QHaE8&pid=Api" alt="Secret Safari" />
         <h2>Secret Safari (Treasure Hunt)</h2>
-        <p>Embark on a treasure hunt to uncover hidden secrets!</p>
+        <p>Embark on an exciting treasure hunt to uncover hidden secrets!</p>
         <div class="links">
-          <a href="#" onclick="openPopup('Secret Safari (Treasure Hunt)')">Register</a>
+          <a href="#" onclick="openDetails('Secret Safari', 'Date: 31st January 2025<br>Time: 10:30 AM<br>Team Size: 3–5 members')">Details</a>
+          <a href="#" onclick="openRegister('Secret Safari')">Register</a>
         </div>
       </div>
+
       <!-- Activity 6 -->
       <div class="activity">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftrendjackers.com%2Fwp-content%2Fuploads%2F2018%2F03%2Fmebrw75yvexnylb0e0ql-1.jpg&f=1&nofb=1&ipt=00ae5986f52a32d0bb3db7788a222086044b3948d3d1351d78992c76ed9cb23d&ipo=images" alt="Soch se Pray (Ad-Mad Show)" />
+        <img src="https://trendjackers.com/wp-content/uploads/2018/03/mebrw75yvexnylb0e0ql-1.jpg" alt="Soch se Pray" />
         <h2>Soch se Pray (Ad-Mad Show)</h2>
-        <p>Unleash your creativity in our fun ad-mad show.</p>
+        <p>Unleash your creativity in our fun and exciting ad-mad show!</p>
         <div class="links">
-          <a href="#" onclick="openPopup('Soch se Pray (Ad-Mad Show)')">Register</a>
+          <a href="#" onclick="openDetails('Soch se Pray', 'Date: 30th January 2025<br>Time: 2:30 PM<br>Team Size: Individual participation')">Details</a>
+          <a href="#" onclick="openRegister('Soch se Pray')">Register</a>
+        </div>
+      </div>
+
+      <!-- Activity 7 -->
+      <div class="activity">
+        <img src="https://tse1.mm.bing.net/th?id=OIP.88CkNKQl5dvy5_r7cHNdRgHaHa&pid=Api" alt="Cultural Events" />
+        <h2>Cultural Events (Singing and Dancing)</h2>
+        <p>Showcase your talent in group singing and dancing performances.</p>
+        <div class="links">
+          <a href="#" onclick="openDetails('Cultural Events', 'Date: 30th & 31st January 2025<br>Participation: Group performances')">Details</a>
+          <a href="#" onclick="openRegister('Cultural Events')">Register</a>
         </div>
       </div>
     </div>
+      <!-- Repeat similar structure for other activities -->
+    </div>
 
-    <!-- Popup Box -->
-    <div class="popup">
+    <!-- Details Popup -->
+    <div class="popup" id="details-popup">
       <div class="popup-content">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <h2>Register for <span id="activity-name"></span></h2>
+        <span class="close" onclick="closePopup('details-popup')">&times;</span>
+        <h2 id="details-title"></h2>
+        <p id="details-info"></p>
+      </div>
+    </div>
+
+    <!-- Register Popup -->
+    <div class="popup" id="register-popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup('register-popup')">&times;</span>
+        <h2>Register for <span id="register-title"></span></h2>
         <form method="POST">
           {% csrf_token %}
-          <input type="text" name = "team_name" id="team_name" placeholder="Team Name" required />
-          <input type="text" name = "leader_name" id="leader_name" placeholder="Team Leader's Name" required />
-          <input type="tel" name = "phone" id="phone" placeholder="Phone Number" pattern="[0-9]{10}" required />
-          <input name = 'identity' type="hidden" id="activity-field" />
+          <input type="text" id="team_name" placeholder="Team Name" required />
+          <input type="text" id="leader_name" placeholder="Leader Name" required />
+          <input type="tel" id="phone" placeholder="Phone (10 digits)" pattern="[0-9]{10}" required />
+          <input type="hidden" id="activity-field" />
           <button type="submit">Submit</button>
         </form>
       </div>
     </div>
 
     <script>
-      function openPopup(activity) {
-        document.querySelector(".popup").classList.add("active");
-        document.querySelector("#activity-name").innerText = activity;
-        document.querySelector("#activity-field").value = activity;
+      function openDetails(title, info) {
+        document.getElementById("details-title").innerText = title;
+        document.getElementById("details-info").innerHTML = info;
+        document.getElementById("details-popup").classList.add("active");
       }
 
-      function closePopup() {
-        document.querySelector(".popup").classList.remove("active");
+      function openRegister(title) {
+        document.getElementById("register-title").innerText = title;
+        document.getElementById("activity-field").value = title;
+        document.getElementById("register-popup").classList.add("active");
+      }
+
+      function closePopup(popupId) {
+        document.getElementById(popupId).classList.remove("active");
       }
     </script>
   </body>

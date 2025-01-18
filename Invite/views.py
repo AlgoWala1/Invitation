@@ -33,15 +33,12 @@ def Activities(request):
         phone = data.get("phone")
 
         print(activity , team_name , leader_name, phone)
-        if Events.objects.filter(team_name = team_name) or Events.objects.filter(phone = phone):
-            pass
-        else:
-            Events.objects.create(
-                team_name = team_name,
-                leader_name = leader_name,
-                phone = phone,
-                activity = activity
-            )
+        Events.objects.create(
+            team_name = team_name,
+            leader_name = leader_name,
+            phone = phone,
+            activity = activity
+        )
 
     
     return render(request,"Activities.html")

@@ -74,7 +74,36 @@
         border: none;
         border-radius: 5px;
       }
+      .attendees-link {
+  font-size: 1.5rem; /* Adjust size of the entire section */
+  text-align: center;
+  margin: 20px;
+}
 
+.rainbow-link {
+  font-size: 2rem; /* Make the link bigger */
+  font-weight: bold;
+  text-decoration: underline;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 400%; /* Make the gradient move */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-animation 3s linear infinite;
+  transition: transform 0.3s ease;
+}
+
+.rainbow-link:hover {
+  transform: scale(1.2); /* Slight zoom on hover */
+}
+
+@keyframes rainbow-animation {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
       form button {
         padding: 10px 20px;
         background-color: #2575fc;
@@ -120,32 +149,8 @@
       </div>
     </div>
 
-    <div class="rsvp">
-      <h2>RSVP Now</h2>
-      <form method="POST">
-        {% csrf_token %}
-        <input type="text" placeholder="Your Name" name="Name" required />
-        <input type="email" placeholder="Your Email" name="email" required />
-        <input
-          type="tel"
-          placeholder="Your Phone Number"
-          name="Phone_Number"
-          pattern="[0-9]{10}"
-          required
-        />
-        <button type="submit">Confirm Attendance</button>
-      </form>
-    </div>
-
     <div class="attendees-link">
-      <p>
-        Curious about the guest list?
-        <a href="/Display" style="color: #fff; text-decoration: underline;">See Who's Attending</a>
-      </p>
-      <p>
-        Checkout our activities
-        <a href="/Activities" style="color: #fff; text-decoration: underline;">Activities</a>
-      </p>
+      <a href="/Activities" class="rainbow-link">Checkout our Activities</a>
     </div>
 
     <footer>
